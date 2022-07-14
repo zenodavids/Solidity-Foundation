@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Examples</title>
+  </head>
+  <body>
+    <h1>DOM Examples</h1>
+    <!-- ----------------------------- getElementById ------------------------------ -->
+    <h5 id="one">getElementById</h5>
+    <script>
+      document.getElementById('one').style.color = 'green'
+    </script>
+    <!-- ------------------------------------ getElementsByTagName ----------------------------- -->
+
+    <p>getElementsByTagName</p>
+    <p>getElementsByTagName</p>
+    <script>
+      // this gets all the html <p> tags
+      let ps = document.getElementsByTagName('p')
+      // loops through all the <p> tags
+      for (let i = 0; i <= ps.length; i++) {
+        // changes their colors to red
+        ps[i].style.color = 'red'
+        // uses the alert method to show them by thier index
+        // alert(`this is element ${i}`)
+      }
+    </script>
+    <!-- --------------------------- getElementsByClassName ---------------------------------- -->
+
+    <h3 class="special">getElementsByClassName</h3>
+    <script>
+      // lets make all the classes with 'special' blue
+      let myClass = document.getElementsByClassName('special')
+      // if you have only one element with the className, we still treat it like an array
+      myClass[0].style.color = 'red'
+    </script>
+    <!-------------------------------- QuerySelector ---------------------------------->
+    <div id="special">
+      <p class="reallySpecial">QuerySelector()</p>
+    </div>
+    <script>
+      // this uses the CSS syntax and like CSS we can get more specific
+      let myText = document.querySelector('#special .reallySpecial')
+      myText.style.color = 'blue'
+    </script>
+    <!------------------------------------ querySelectorAll -------------------------------------->
+    <div id="count">
+      <h6 class="countAll">querySelectorAll-1</h6>
+      <h6 class="countAll">querySelectorAll-2</h6>
+      <h6 class="countAll">querySelectorAll-3</h6>
+      <h6 class="countAll">querySelectorAll-4</h6>
+    </div>
+    <script>
+      // this gets all the <p> tags in the <div> with id=count
+      let myCount = document.querySelectorAll('#count h6')
+      for (let i = 0; i < myCount.length; i++) {
+        myCount[i].style.color = 'green'
+      }
+    </script>
+    <!-------------------------------- innerHTML ------------------------------->
+    <div id="inner">
+      <h5>innerHTML</h5>
+      <h5>innerHTML</h5>
+      <h5>innerHTML</h5>
+    </div>
+    <script>
+      // access the div and replace every element in the div with the element in the parenthesis
+      document.querySelector('#inner').innerHTML =
+        '<p>innerHTML has been changed</p>'
+
+      // to access the console log on the chrome, open chrome, go to open file, locate the file you want to access and press f12 to inspect the file and access the console
+      // to increase the font size of the vscode, ctrl + and reduce with ctrl -
+    </script>
+    <!-- -------------------------- className ----------------------------------->
+    <style>
+      .blue {
+        color: blue;
+      }
+    </style>
+
+    <div id="classNm">
+      <p>class name</p>
+      <p>class name</p>
+      <p>class name</p>
+    </div>
+    <script>
+      // this gets the first element with the <p>
+      // properties can also be assigned variables
+      let firstPara = document.querySelector('#classNm p')
+      // assigns the class of blue to the <p>
+      firstPara.className = 'blue'
+    </script>
+    <!----------------------------- setAttribute() ----------------------------------------->
+    <form action="">
+      <label for="">
+        <input type="checkbox" />
+        YES
+      </label>
+    </form>
+    <script>
+      // the setAttribute() takes two arguments; setAttribute('attribute', 'attributeValue')
+      // here, it sets the checked attribute to checked
+      document.querySelector('input').setAttribute('checked', 'checked')
+    </script>
+    <!-------------- creating html elements and text nodes using javascript ------------------------>
+    <div id="eleTxt">
+      <p>Creating elements and textnodes</p>
+    </div>
+    <script>
+      // this creates the <p> element
+      let myTag = document.createElement('p')
+      // creates the text content to put in the <p>
+      let myPara = document.createTextNode('Here is my paragraph')
+      // puts the text in the <p>
+      myTag.appendChild(myPara)
+      // access the specific div
+      let myDiv = document.querySelector('#eleTxt')
+      // put the <p> in the div
+      myDiv.appendChild(myTag)
+    </script>
+    <!-------------- removing html elements from html elements using javascript ------------------------>
+    <div id="remvEl">
+      <p>this pararaph stays</p>
+      <p>this pararaph goes</p>
+    </div>
+    <script>
+      // get the <div> using its id attribute
+      let herDiv = document.querySelector('#remvEl')
+      // since nodes uses 0-index, we remove the second <p> element
+      herDiv.removeChild(herDiv.children[1])
+    </script>
+  </body>
+</html>

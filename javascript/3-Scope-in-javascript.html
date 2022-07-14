@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>scope issues</title>
+  </head>
+  <body>
+    <h1>Solving scope issues</h1>
+
+    <!------------------ Strategy 1: NEVER USE GLOBAL SCOPE ---------------->
+    <p class="one">here is paragragh one</p>
+    <p class="one">here is paragragh two</p>
+    <p class="one">here is paragragh three</p>
+    <script>
+      /* INSTEAD OF THIS;
+
+     // gets the elements by their classes
+      let myPs = document.querySelectorAll('.one')
+      // loops through all of them ...
+      for (let i = 0; i < myPs.length; i++) {
+        // ... and change thier to gold
+        myPs[i].style.color = 'gold'
+      }
+
+    */
+
+      // DO THIS; use an Immediately Invoked function expression (IIFE) and this will automatically be invoked once the page runs.
+      // this is the IIFE syntax (() => {code })()
+
+      ;(() => {
+        let myPs = document.querySelectorAll('.one')
+        // loops through all of them ...
+        for (let i = 0; i < myPs.length; i++) {
+          // ... and change thier to gold
+          myPs[i].style.color = 'gold'
+        }
+      })()
+    </script>
+
+    <!------------ Strategy 2: USE THE 'use strict' keyword ------------>
+
+    <script>
+      // this keyword helps notify us when we forget to use VAR/LET/CONST
+      // let us master using IIFE and the 'use strict' keyword
+
+      ;(() => {
+        'use strict'
+        newVar = 'this shit suppose work'
+        console.log(newVar)
+      })()
+    </script>
+  </body>
+</html>

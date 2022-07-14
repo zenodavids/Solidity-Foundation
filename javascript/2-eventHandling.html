@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>event Handling</title>
+  </head>
+  <body>
+    <h1>Javascript Events</h1>
+    <!---------------------------------------- button onclick  -------------------------------->
+    <button id="btn">test onclick</button>
+    <script>
+      // access the button using its id attribute
+      let btn = document.querySelector('#btn')
+      // define a function
+      const ouch = () => alert('i told you not to press me!')
+      // invoke the function and attach it to an onclick property
+      btn.onclick = ouch
+      // notice when we called the function ouch, we did not put parenthesis, if we did, the function will run right away!
+      ////////////////////////////////////////////////////////
+      /*
+      when we want to assign the function to a particular button, we can refacture it this way;
+
+      let btn = document.querySelector('#btn')
+      btn.onclick = () => alert('i told you not to press me!')
+
+      */
+    </script>
+
+    <!---------------------------------------- Event Listners -------------------------------->
+    <button id="test">Test addEventListner()</button>
+
+    <script>
+      // the addEventListner() method replaces the onclick property.
+      // it takes two parameters; event to listen for, afunction to run when the event happens
+      // re-doing the onclick property;
+      let testClick = document.querySelector('#test')
+      // here, we are listening for the button with the id=test to be clicked and then once clicked it activates the anonymous function
+      testClick.addEventListener('click', () =>
+        alert('we test the addEvent listner')
+      )
+    </script>
+
+    <!---------------------------------------- Event object  -------------------------------->
+    <button id="obj">Event Object</button>
+
+    <script>
+      let testEvt = document.querySelector('#obj')
+      // we can pass in the event object in the function parameter (e)
+      // we can use the (e) to access the event object; e.target.style.backgroundColor = 'cyan'
+      // here target represents what triggered the event in ths case is the 'click' event
+      testEvt.addEventListener('click', (e) => {
+        e.target.style.backgroundColor = 'cyan'
+        alert('we test the event object')
+      })
+    </script>
+
+    <!----------------------------------------  preventDefault()  -------------------------------->
+    <a href="google.com">link to google</a>
+    <script>
+      let link = document.querySelector('a')
+      // combine the event object (e.) with the preventDefault()
+      link.addEventListener('click', (e) => {
+        // this prevents the link from opening google
+        e.preventDefault()
+        // this alert pops up when the link is clicked
+        alert('sorry no google for you')
+      })
+    </script>
+
+    <!---------------------------------------- submit event (ie, submiting of forms)  -------------------------------->
+    <form action="">
+      <label for=""
+        >Your Name:
+        <input type="text" name="name" />
+      </label>
+      <input type="submit" />
+    </form>
+
+    <script>
+      // access the <form>
+      let myForm = document.querySelector('form')
+      // the form listens for the submit event and runs the form once the form is submitted
+      myForm.addEventListener('submit', (e) => {
+        // this stops the form from loading the entire page on submit
+        e.preventDefault()
+        // get the <input> value attribute(what was typed in the input tag)
+        let formData = document.querySelector('input').value
+        alert(formData)
+      })
+    </script>
+
+    <!----------------------------------------  mouseover, mouseOut Events  -------------------------------->
+    <!-- style -->
+    <style>
+      .box {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+      }
+    </style>
+
+    <!-- html -->
+    <h1 class="heading">Roll your mouse over the box</h1>
+    <div class="box"></div>
+
+    <!-- js -->
+    <script>
+      // assign the h1 to a variable
+      let heading = document.querySelector('.heading')
+
+      // assign the div to  a variable
+      let box = document.querySelector('.box')
+
+      // when the mouse is over the box, the heading changes
+      box.addEventListener(
+        'mouseover',
+        () => (heading.innerHTML = 'The mouse is over the box')
+      )
+
+      // when the mouse is outside the box, the heading changes
+      box.addEventListener(
+        'mouseout',
+        () => (heading.innerHTML = 'The mouse is out the box')
+      )
+
+      // when the mouse is over the heading, the heading changes
+      heading.addEventListener(
+        'mouseover',
+        () => (heading.innerHTML = 'Roll your mouse over the box')
+      )
+    </script>
+
+    <!---------------------------------------- scroll events  -------------------------------->
+    <!-- style -->
+    <style>
+      .scrollE {
+        width: 50px;
+        height: 5000px;
+        background-color: goldenrod;
+      }
+    </style>
+
+    <!-- html -->
+    <h1 class="heading">capturing scroll events</h1>
+    <div class="scrollE"></div>
+
+    <!-- js -->
+    <script>
+      // start with making it undefined
+      let pagetop
+      // the browser window listens for a scroll
+      window.addEventListener('scroll', () => {
+        // pageYOffset keeps track of how many pixels the page has scrolled vertically (up and down), while pageXOffset keeps track of the page moving horizontally (left to right)
+
+        pagetop = window.pageYOffset
+        console.log(pagetop)
+      })
+    </script>
+
+    <!---------------------------------------- window resizing  -------------------------------->
+    <h1>Resize the window and watch the console</h1>
+
+    <script>
+      // this listens to the resizing of the window browser
+      window.addEventListener('resize', () => {
+        // this updates as the window browser is being resized
+        console.log(`page width is ${window.innerWidth}`)
+        console.log(`page Height is ${window.innerHeight}`)
+      })
+    </script>
+
+    <!---------------------------------------- key Down  -------------------------------->
+    <p>press a key on your keyboard</p>
+    <script>
+      // the .key property tells which key was pressed
+      document.addEventListener('keydown', (e) =>
+        alert(`the ${e.key} key was pressed.`)
+      )
+    </script>
+  </body>
+</html>
