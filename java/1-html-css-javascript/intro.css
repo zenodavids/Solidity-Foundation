@@ -1,0 +1,18 @@
+/* CSS SYNTAX
+
+selector {
+ property to change: value;
+}
+
+///////////////////// COLORS
+
+-- 140 standard color names
+
+-- red , green, blue 0 - 255 . ie; rgb(255, 215, 0)
+
+-- # + 6 hex digits where;
+hexadecimal : base 16 (0 - 15),
+digits: 0 - 9, A(10) - F(15)
+
+
+*/
