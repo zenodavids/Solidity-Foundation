@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- js tag. 'defer' keyword to cause html load before js script does -->
+    <script defer>
+      const doLime = () => {
+        // function to change canvas color on button click
+
+        let dd1 = document.getElementById('d1')
+        // define variable
+
+        dd1.style.backgroundColor = 'lime'
+      }
+
+      // for red color
+      const doRed = () => {
+        // function to change canvas color on button click
+
+        let dd1 = document.getElementById('d1')
+        // define variable
+
+        dd1.style.backgroundColor = 'red'
+
+        ///////////////////////////////////////////////////////
+        // ADDING SHAPES IN THE CANVAS
+        let ctx = dd1.getContext('2d')
+        //access the context of the canvas
+        ctx.fillStyle = 'white'
+        //fill the context with white color
+        ctx.fillRect(10, 20, 200, 100)
+        //make the context a rectangle with padding-left 10px, padding-top 20px, context-width 200px, context-height 100px.
+        ///////////////////////////////////////////////////////
+        // ADDING TEXTS IN THE CANVAS
+        ctx.fillStyle = 'white'
+        // font color
+        ctx.font = 'poppins'
+        // font style
+        ctx.fillText('Hello', 230, 70)
+        // text,  padding-left 50px, padding-top 70px
+      }
+    </script>
+    <title>Document</title>
+  </head>
+
+  <body>
+    <style>
+      canvas {
+        width: 500px;
+        height: 300px;
+        border: 1px solid #c3c3c3;
+      }
+      /*canvas size in pixel*/
+    </style>
+
+    <h1>Towards a canvas</h1>
+    <canvas id="d1"></canvas>
+    <h2>
+      <input type="button" value="make lime" onclick="doLime()" />
+      <input type="button" value="make red" onclick="doRed()" />
+    </h2>
+  </body>
+</html>

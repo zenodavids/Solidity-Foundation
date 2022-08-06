@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- js tag. 'defer' keyword to cause html load before js script does -->
+    <script defer>
+      const changeColor = () => {
+        // function to change div colors on button click
+
+        let d1 = document.getElementById('d1')
+        let d2 = document.getElementById('d2')
+        // define variables
+
+        d1.className = 'blue'
+        d2.className = 'yellow'
+        // assign css classes to divs
+      }
+    </script>
+    <title>Document</title>
+  </head>
+
+  <body>
+    <style>
+      .blue {
+        background-color: lightblue;
+      }
+      .yellow {
+        background-color: yellow;
+      }
+      /* assign colors to divs */
+    </style>
+
+    <div id="d1">Hello</div>
+    <div id="d2">GoodBye</div>
+    <input type="button" value="color change" onclick="changeColor()" />
+  </body>
+</html>

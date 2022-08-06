@@ -32,5 +32,6 @@
   "files.associations": {
     "*.ejs": "html",
     "stdio.h": "c"
-  }
+  },
+  "cSpell.words": ["steg", "usain", "wireframe"]
 }
