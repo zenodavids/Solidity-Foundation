@@ -33,5 +33,17 @@
     "*.ejs": "html",
     "stdio.h": "c"
   },
-  "cSpell.words": ["steg", "usain", "wireframe"]
+  "cSpell.words": [
+    "AAATGCCCTAACTAGATTAAGAAACC",
+    "Axxzcczc",
+    "bluej",
+    "curr",
+    "dateutc",
+    "DNDEBUG",
+    "mallix",
+    "steg",
+    "usain",
+    "wireframe"
+  ],
+  "workbench.tree.indent": 4
 }
